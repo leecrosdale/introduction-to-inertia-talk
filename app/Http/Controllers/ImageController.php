@@ -13,7 +13,8 @@ class ImageController extends Controller
         return Inertia::render('Image/Show', [
             'image' => $image->only(
                 'id',
-                'title'
+                'title',
+                'image'
             ),
         ]);
     }
