@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->bootInertia();
+    }
+
+    private function bootInertia()
+    {
+        // If you're using Laravel Mix, you can
+        // use the mix-manifest.json for this.
+        Inertia::version(function () {
+            return md5_file(public_path('mix-manifest.json'));
+        });
     }
 }
