@@ -12,6 +12,8 @@ import { InertiaApp } from '@inertiajs/inertia-vue';
 
 Vue.use(InertiaApp);
 
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,6 +33,8 @@ Vue.use(InertiaApp);
 
 const app = document.getElementById('app');
 
+
+Vue.prototype.$route = (...args) => route(...args).url();
 
 new Vue({
     render: h => h(InertiaApp, {
